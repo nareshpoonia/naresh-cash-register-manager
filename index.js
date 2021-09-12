@@ -35,5 +35,6 @@ button.addEventListener("click", function () {
   } else {
     errorMessage.innerHTML = "Error : Bill Amount is less than zero";
     errorMessage.style.display = "block";
+    console.log(billAmount);
   }
 });
