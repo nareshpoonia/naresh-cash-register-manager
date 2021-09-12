@@ -1,23 +1,23 @@
-var billAmount = document.querySelector("#bill-amount");
-var cashGiven = document.querySelector("#cash-given");
+var billAmount = parseInt(document.querySelector("#bill-amount").value);
+
+var cashGiven = parseInt(document.querySelector("#cash-given").value);
+
 var button = document.querySelector(".button");
 var errorMessage = document.querySelector(".error-message");
 var denominations = [2000, 500, 100, 20, 10, 5, 1];
 // Query Selector All returns an array of all the element with notes-count classes
 var numberOfNotes = document.querySelectorAll(".notes-count");
 
-var cashGivenValue = parseInt(cashGiven.value);
-console.log(cashGivenValue);
 button.addEventListener("click", function () {
-  if (billAmount.value > 0) {
+  if (billAmount > 0) {
     // Setting display to none when there is no error
 
     errorMessage.style.display = "none";
-    if (cashGiven.value >= billAmount.value) {
+    if (cashGiven >= billAmount) {
       // Setting display to none when there is no error
       errorMessage.style.display = "none";
       // storing amount to return in a variable.
-      var amountToReturn = cashGiven.value - billAmount.value;
+      var amountToReturn = cashGiven - billAmount;
       //   A for loop to loop over every denomination
       for (let i = 0; i < denominations.length; i++) {
         // Amount to be returned is divided by all the denominations and intergral part is stored as a variable
@@ -29,9 +29,6 @@ button.addEventListener("click", function () {
         console.log(balance);
       }
     } else {
-      console.log(billAmount.value);
-      console.log(cashGiven.value);
-      console.log(cashGiven.value >= billAmount.value);
       errorMessage.innerHTML = "Error: Cash given is less than the bill Amount";
       errorMessage.style.display = "block";
     }
