@@ -9,6 +9,7 @@ var numberOfNotes = document.querySelectorAll(".notes-count");
 button.addEventListener("click", function () {
   if (billAmount.value > 0) {
     // Setting display to none when there is no error
+
     errorMessage.style.display = "none";
     if (cashGiven.value >= billAmount.value) {
       // Setting display to none when there is no error
@@ -26,6 +27,9 @@ button.addEventListener("click", function () {
         console.log(balance);
       }
     } else {
+      console.log(billAmount.value);
+      console.log(cashGiven.value);
+      console.log(cashGiven.value >= billAmount.value);
       errorMessage.innerHTML = "Error: Cash given is less than the bill Amount";
       errorMessage.style.display = "block";
     }
@@ -34,6 +38,3 @@ button.addEventListener("click", function () {
     errorMessage.style.display = "block";
   }
 });
-
-console.log(billAmount);
-console.log("Scipt");
