@@ -1,7 +1,5 @@
-var billAmount = parseInt(document.querySelector("#bill-amount").value);
-
-var cashGiven = parseInt(document.querySelector("#cash-given").value);
-
+var billAmount = document.querySelector("#bill-amount");
+var cashGiven = document.querySelector("#cash-given");
 var button = document.querySelector(".button");
 var errorMessage = document.querySelector(".error-message");
 var denominations = [2000, 500, 100, 20, 10, 5, 1];
@@ -9,15 +7,18 @@ var denominations = [2000, 500, 100, 20, 10, 5, 1];
 var numberOfNotes = document.querySelectorAll(".notes-count");
 
 button.addEventListener("click", function () {
-  if (billAmount > 0) {
+  if (billAmount.value > 0) {
     // Setting display to none when there is no error
 
     errorMessage.style.display = "none";
-    if (cashGiven >= billAmount) {
+    if (cashGiven.value >= billAmount.value) {
+      console.log(billAmount.value);
+      console.log(cashGiven.value);
+      console.log(cashGiven.value >= billAmount.value);
       // Setting display to none when there is no error
       errorMessage.style.display = "none";
       // storing amount to return in a variable.
-      var amountToReturn = cashGiven - billAmount;
+      var amountToReturn = cashGiven.value - billAmount.value;
       //   A for loop to loop over every denomination
       for (let i = 0; i < denominations.length; i++) {
         // Amount to be returned is divided by all the denominations and intergral part is stored as a variable
@@ -35,6 +36,5 @@ button.addEventListener("click", function () {
   } else {
     errorMessage.innerHTML = "Error : Bill Amount is less than zero";
     errorMessage.style.display = "block";
-    console.log(billAmount);
   }
 });
