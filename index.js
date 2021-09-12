@@ -7,18 +7,18 @@ var denominations = [2000, 500, 100, 20, 10, 5, 1];
 var numberOfNotes = document.querySelectorAll(".notes-count");
 
 button.addEventListener("click", function () {
-  if (billAmount.value > 0) {
+  if (Number(billAmount.value) > 0) {
     // Setting display to none when there is no error
 
     errorMessage.style.display = "none";
-    if (cashGiven.value >= billAmount.value) {
-      console.log(billAmount.value);
-      console.log(cashGiven.value);
-      console.log(cashGiven.value >= billAmount.value);
+    if (Number(cashGiven.value) >= Number(billAmount.value)) {
+      //   console.log(billAmount.value);
+      //   console.log(cashGiven.value);
+      console.log(Number(cashGiven.value) >= Number(billAmount.value));
       // Setting display to none when there is no error
       errorMessage.style.display = "none";
       // storing amount to return in a variable.
-      var amountToReturn = cashGiven.value - billAmount.value;
+      var amountToReturn = Number(cashGiven.value) - Number(billAmount.value);
       //   A for loop to loop over every denomination
       for (let i = 0; i < denominations.length; i++) {
         // Amount to be returned is divided by all the denominations and intergral part is stored as a variable
