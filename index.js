@@ -6,6 +6,8 @@ var denominations = [2000, 500, 100, 20, 10, 5, 1];
 // Query Selector All returns an array of all the element with notes-count classes
 var numberOfNotes = document.querySelectorAll(".notes-count");
 
+var cashGivenValue = parseInt(cashGiven.value);
+console.log(cashGivenValue);
 button.addEventListener("click", function () {
   if (billAmount.value > 0) {
     // Setting display to none when there is no error
